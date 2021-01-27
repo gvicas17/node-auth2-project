@@ -27,6 +27,5 @@ function findById(id){
 
 function findBy(filter){
     return db('users')
-        .select('users.username', 'users.department')
         .where(filter)
 }

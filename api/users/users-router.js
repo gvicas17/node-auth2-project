@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const Users = require('./users-model')
+const noTokenNoPass = require('../auth/protection-middleware')
 
-router.get('/', (req, res) => {
+router.get('/', noTokenNoPass, (req, res) => {
     Users.find()
     .then(users => {
         res.json(users)
